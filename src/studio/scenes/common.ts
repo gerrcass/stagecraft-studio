@@ -42,7 +42,7 @@ export const footer = (
   index: number,
   options: { y?: number } = {},
 ): GroupLayer => {
-  const y = options.y ?? style.grid.height - 92;
+  const y = options.y ?? style.grid.height - 120;
   return group({
     id: `${scene.id}-footer`,
     x: style.grid.margin,

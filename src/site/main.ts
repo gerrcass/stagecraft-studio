@@ -200,11 +200,13 @@ const render = (manifest: Manifest): void => {
     ["video-qa", "Bounds, overflow, contrast, contact sheets."],
     ["resolve-handoff", "Plates, stems, FCPXML and markers."],
     ["youtube-packaging", "Title, thumbnails, chapters, private check."],
+    ["agents", "director, scene-coder, visual-qa, packaging."],
   ];
   const skillGrid = el("div", "skill-grid");
   for (const [name, body] of skillList) {
-    const card = el("article", "skill-card");
-    card.innerHTML = `<span class="skill-name">/${name}</span><p>${body}</p>`;
+    const card = el("article", name === "agents" ? "skill-card platform" : "skill-card");
+    const label = name === "agents" ? "4 AGENTS" : `/${name}`;
+    card.innerHTML = `<span class="skill-name">${label}</span><p>${body}</p>`;
     skillGrid.append(card);
   }
   skills.append(skillsHead, skillGrid);

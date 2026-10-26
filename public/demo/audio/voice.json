@@ -1,0 +1,52 @@
+{
+  "voice": "am_michael",
+  "speed": 1,
+  "total": 90.173332,
+  "scenes": [
+    {
+      "id": "01-cold-open",
+      "voiceDuration": 10.688,
+      "hold": 2,
+      "start": 0,
+      "duration": 12.688
+    },
+    {
+      "id": "02-interfaces",
+      "voiceDuration": 11.989333,
+      "hold": 2,
+      "start": 12.688,
+      "duration": 13.989333
+    },
+    {
+      "id": "03-harness-loop",
+      "voiceDuration": 15.168,
+      "hold": 2.2,
+      "start": 26.677333,
+      "duration": 17.368
+    },
+    {
+      "id": "04-five-parts",
+      "voiceDuration": 10.261333,
+      "hold": 2,
+      "start": 44.045333,
+      "duration": 12.261333
+    },
+    {
+      "id": "05-claude-code",
+      "voiceDuration": 15.189333,
+      "hold": 2.2,
+      "start": 56.306666,
+      "duration": 17.389333
+    },
+    {
+      "id": "06-recap",
+      "voiceDuration": 13.077333,
+      "hold": 3.4,
+      "start": 73.695999,
+      "duration": 16.477332999999998
+    }
+  ],
+  "audio": "audio/voice.mp3",
+  "srt": "theo-harness.srt",
+  "vtt": "theo-harness.vtt"
+}

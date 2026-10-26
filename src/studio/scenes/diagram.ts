@@ -75,11 +75,18 @@ const connector = (
   if (!from || !to) return null;
   const a = center(from);
   const b = center(to);
-  const startX = a.x + a.width / 2 - 8;
-  const endX = b.x - b.width / 2 + 8;
-  const midY = (a.y + b.y) / 2;
+  const isReturn = b.x <= a.x;
+  const startX = isReturn ? a.x : a.x + a.width / 2 - 8;
+  const startY = isReturn ? a.y + a.height / 2 : a.y;
+  const endX = isReturn ? b.x : b.x - b.width / 2 + 8;
+  const endY = isReturn ? b.y + b.height / 2 : b.y;
   const dip = index % 2 === 0 ? -58 : 58;
-  const d = `M ${startX} ${a.y} C ${startX + 90} ${a.y + dip}, ${endX - 90} ${b.y + dip}, ${endX} ${b.y}`;
+  const returnY = Math.max(a.y + a.height / 2, b.y + b.height / 2) + 86;
+  const d = isReturn
+    ? `M ${startX} ${startY} C ${startX} ${returnY}, ${endX} ${returnY}, ${endX} ${endY}`
+    : `M ${startX} ${startY} C ${startX + 90} ${startY + dip}, ${endX - 90} ${endY + dip}, ${endX} ${endY}`;
+  const labelX = (startX + endX) / 2 - 90;
+  const labelY = isReturn ? returnY - 28 : Math.min(startY, endY) - 38;
   const parts: Array<Layer | null> = [
       path({
         d,
@@ -93,7 +100,7 @@ const connector = (
       }),
       rect({
         x: endX - 7,
-        y: b.y - 7,
+        y: endY - 7,
         width: 14,
         height: 14,
         fill: style.colors.accent,
@@ -102,14 +109,14 @@ const connector = (
       }),
       edge.label
         ? text({
-            x: Math.min(startX, endX) + Math.abs(endX - startX) / 2 - 90,
-            y: midY + dip / 2 - 20,
+            x: labelX,
+            y: labelY,
             width: 180,
             align: "center",
             text: edge.label,
             font: style.fonts.mono,
-            size: 12,
-            color: style.colors.muted,
+            size: 14,
+            color: style.colors.text,
             letterSpacing: 2,
             opacity: enter(1.0 + index * 0.12, 0.3),
           })
@@ -159,7 +166,7 @@ export const diagramScene = (scene: SceneIR, style: StylePack, index = 0): Group
           y: 76,
           text: node.detail ?? "",
           font: style.fonts.mono,
-          size: 12,
+          size: 14,
           color: node.accent ? style.colors.accent : style.colors.muted,
           letterSpacing: 2,
         }),

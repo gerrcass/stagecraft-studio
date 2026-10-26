@@ -1,0 +1,82 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.781
+An LLM can write code.
+
+00:00:01.781 --> 00:00:03.919
+It still can't click a button.
+
+00:00:03.919 --> 00:00:06.057
+The model is a text engine.
+
+00:00:06.057 --> 00:00:07.482
+It has no hands.
+
+00:00:07.482 --> 00:00:10.688
+By default, all it can do is generate text.
+
+00:00:12.688 --> 00:00:15.311
+Humans don't use computers by writing code.
+
+00:00:15.311 --> 00:00:19.057
+We use an interface: a terminal, a website, an app.
+
+00:00:19.057 --> 00:00:22.804
+The interface is the part you can see and touch.
+
+00:00:22.804 --> 00:00:24.677
+It hides the code underneath.
+
+00:00:26.677 --> 00:00:28.194
+An LLM needs tools.
+
+00:00:28.194 --> 00:00:30.849
+It emits a tool call as text.
+
+00:00:30.849 --> 00:00:36.157
+Something has to parse that text, run the tool, and send the result back.
+
+00:00:36.157 --> 00:00:38.812
+The model never runs the tool itself.
+
+00:00:38.812 --> 00:00:40.212
+The harness does.
+
+00:00:40.212 --> 00:00:41.845
+That loop is the harness.
+
+00:00:44.045 --> 00:00:52.184
+A harness is five things: the tools, the syntax for calling them, a parser, a result channel, and a list of what's available.
+
+00:00:52.184 --> 00:00:54.307
+Miss one and the loop breaks.
+
+00:00:56.307 --> 00:00:58.569
+Claude Code is kind of a harness.
+
+00:00:58.569 --> 00:01:01.801
+It bakes the interface and the harness into one app.
+
+00:01:01.801 --> 00:01:03.417
+The interface is for you.
+
+00:01:03.417 --> 00:01:05.356
+The harness is for the model.
+
+00:01:05.356 --> 00:01:11.496
+Think of a kitchen: the tools are pots and pans, and a good harness lets you bring your own.
+
+00:01:13.696 --> 00:01:16.524
+An agent is an LLM plus a harness.
+
+00:01:16.524 --> 00:01:18.291
+The model is the chef.
+
+00:01:18.291 --> 00:01:20.058
+The harness is the kitchen.
+
+00:01:20.058 --> 00:01:25.006
+And T3 Code is the restaurant that lets you bring whatever kitchen you want.
+
+00:01:25.006 --> 00:01:26.773
+That is the whole trick.

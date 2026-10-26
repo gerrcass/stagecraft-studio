@@ -43,7 +43,7 @@ const box = (
       align: "center",
       text: detail,
       font: style.fonts.mono,
-      size: 12,
+      size: 14,
       color: style.colors.muted,
       letterSpacing: 3,
       opacity: reveal,

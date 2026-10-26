@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "issues": [],
+  "counts": {
+    "error": 0,
+    "warning": 0
+  },
+  "generatedBy": "stagecraft-studio",
+  "html": "/home/gerrcass/code/tools/animation-engine/stagecraft-studio/tmp/qa/theo-harness.html",
+  "scenes": [
+    {
+      "id": "01-cold-open",
+      "time": 6.344,
+      "screenshot": "/home/gerrcass/code/tools/animation-engine/stagecraft-studio/qa/stills/01-cold-open.png"
+    },
+    {
+      "id": "02-interfaces",
+      "time": 19.6825,
+      "screenshot": "/home/gerrcass/code/tools/animation-engine/stagecraft-studio/qa/stills/02-interfaces.png"
+    },
+    {
+      "id": "03-harness-loop",
+      "time": 35.361,
+      "screenshot": "/home/gerrcass/code/tools/animation-engine/stagecraft-studio/qa/stills/03-harness-loop.png"
+    },
+    {
+      "id": "04-five-parts",
+      "time": 50.1755,
+      "screenshot": "/home/gerrcass/code/tools/animation-engine/stagecraft-studio/qa/stills/04-five-parts.png"
+    },
+    {
+      "id": "05-claude-code",
+      "time": 65.00150000000001,
+      "screenshot": "/home/gerrcass/code/tools/animation-engine/stagecraft-studio/qa/stills/05-claude-code.png"
+    },
+    {
+      "id": "06-recap",
+      "time": 81.9345,
+      "screenshot": "/home/gerrcass/code/tools/animation-engine/stagecraft-studio/qa/stills/06-recap.png"
+    }
+  ]
+}

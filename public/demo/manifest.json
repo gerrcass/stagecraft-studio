@@ -1,0 +1,72 @@
+{
+  "title": "What is a harness?",
+  "subtitle": "A 90-second explainer adapted from Theo t3.gg’s article.",
+  "duration": 90.173,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "video": "demo/theo-harness.mp4",
+  "poster": "demo/poster.png",
+  "contactSheet": "demo/contact-sheet.png",
+  "captions": "demo/theo-harness.srt",
+  "audio": "demo/audio/voice.mp3",
+  "loudness": {
+    "integratedLufs": -14.54,
+    "truePeakDbtp": -1.27
+  },
+  "stills": [
+    { "src": "demo/stills/01.png", "label": "01 / COLD OPEN", "time": 6.3 },
+    { "src": "demo/stills/02.png", "label": "02 / INTERFACES", "time": 19.7 },
+    { "src": "demo/stills/03.png", "label": "03 / HARNESS LOOP", "time": 35.4 },
+    { "src": "demo/stills/04.png", "label": "04 / FIVE PARTS", "time": 50.2 },
+    { "src": "demo/stills/05.png", "label": "05 / CLAUDE CODE", "time": 65.0 },
+    { "src": "demo/stills/06.png", "label": "06 / RECAP", "time": 81.9 }
+  ],
+  "scenes": [
+    {
+      "id": "01-cold-open",
+      "label": "Cold open",
+      "start": 0,
+      "duration": 12.688
+    },
+    {
+      "id": "02-interfaces",
+      "label": "Humans use interfaces",
+      "start": 12.688,
+      "duration": 13.989
+    },
+    {
+      "id": "03-harness-loop",
+      "label": "The harness loop",
+      "start": 26.677,
+      "duration": 17.368
+    },
+    {
+      "id": "04-five-parts",
+      "label": "Five parts",
+      "start": 44.045,
+      "duration": 12.261
+    },
+    {
+      "id": "05-claude-code",
+      "label": "Claude Code and the kitchen",
+      "start": 56.307,
+      "duration": 17.389
+    },
+    {
+      "id": "06-recap",
+      "label": "LLM + harness = agent",
+      "start": 73.696,
+      "duration": 16.477
+    }
+  ],
+  "source": {
+    "title": "What is a “harness”?",
+    "author": "Theo t3.gg",
+    "url": "https://x.com/theo/status/2113424203345265053",
+    "date": "2026-10-23"
+  },
+  "model": "opencode-go/deepseek-v4.1-flash#max",
+  "engine": "Stagecraft",
+  "license": "MIT"
+}

@@ -15,12 +15,13 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "check": "npm run typecheck && npm test && npm run build",
+    "check": "npm run typecheck && npm run check:agents && npm test && npm run build",
     "qa": "tsx scripts/qa.ts",
     "contact-sheet": "tsx scripts/contact-sheet.ts",
     "handoff": "tsx scripts/handoff.ts",
     "tts": "tsx scripts/generate-voice.ts",
-    "render:pilot": "tsx scripts/render-pilot.ts"
+    "render:pilot": "tsx scripts/render-pilot.ts",
+    "check:agents": "tsx scripts/check-agent-env.ts"
   },
   "repository": {
     "type": "git",
