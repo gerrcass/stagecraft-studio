@@ -1,0 +1,15 @@
+node_modules/
+dist/
+coverage/
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+.hyperframes/
+out/
+renders/
+tmp/
+.venv/
+__pycache__/
+*.pyc
