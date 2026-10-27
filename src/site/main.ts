@@ -120,7 +120,7 @@ const render = (manifest: Manifest): void => {
   poster.src = manifest.poster;
   poster.alt = "Poster frame from the harness pilot";
   const posterLabel = el("div", "poster-label");
-  posterLabel.innerHTML = `<span>PILOT / 01</span><span>${manifest.duration}s</span>`;
+  posterLabel.innerHTML = `<span>PILOT / 01</span><span>${Math.round(manifest.duration)}s</span>`;
   heroVisual.append(poster, posterLabel);
   hero.append(heroCopy, heroVisual);
 

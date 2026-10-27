@@ -14,12 +14,12 @@ Based on Theo t3.gg’s article “What is a harness?” (23 Oct 2026):
 https://x.com/theo/status/2113424203345265053
 
 Chapters:
-00:00 The model only sends text
+00:00 An LLM can write code
 00:12 Humans use interfaces
-00:26 The harness loop
+00:27 The harness loop
 00:44 A harness is five things
 00:56 Claude Code and the kitchen
-01:13 An agent is an LLM plus a harness
+01:14 An agent is an LLM plus a harness
 
 Made with Stagecraft Studio. The voice is a Kokoro scratch take; replace it with the creator’s
 recording before publishing. The music bed is a scratch drone, not a licensed track.

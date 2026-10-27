@@ -1,49 +1,49 @@
 {
   "voice": "am_michael",
-  "speed": 1,
-  "total": 90.173332,
+  "speed": 0.92,
+  "total": 89.384001,
   "scenes": [
     {
       "id": "01-cold-open",
-      "voiceDuration": 10.688,
-      "hold": 2,
+      "voiceDuration": 11.413333,
+      "hold": 1.2,
       "start": 0,
-      "duration": 12.688
+      "duration": 12.613332999999999
     },
     {
       "id": "02-interfaces",
-      "voiceDuration": 11.989333,
-      "hold": 2,
-      "start": 12.688,
-      "duration": 13.989333
+      "voiceDuration": 13.354667,
+      "hold": 1.2,
+      "start": 12.613332999999999,
+      "duration": 14.554666999999998
     },
     {
       "id": "03-harness-loop",
-      "voiceDuration": 15.168,
-      "hold": 2.2,
-      "start": 26.677333,
-      "duration": 17.368
+      "voiceDuration": 16.128,
+      "hold": 1.2,
+      "start": 27.168,
+      "duration": 17.328
     },
     {
       "id": "04-five-parts",
-      "voiceDuration": 10.261333,
-      "hold": 2,
-      "start": 44.045333,
-      "duration": 12.261333
+      "voiceDuration": 10.986667,
+      "hold": 1.2,
+      "start": 44.495999999999995,
+      "duration": 12.186667
     },
     {
       "id": "05-claude-code",
-      "voiceDuration": 15.189333,
-      "hold": 2.2,
-      "start": 56.306666,
-      "duration": 17.389333
+      "voiceDuration": 16.170667,
+      "hold": 1.2,
+      "start": 56.682666999999995,
+      "duration": 17.370667
     },
     {
       "id": "06-recap",
-      "voiceDuration": 13.077333,
-      "hold": 3.4,
-      "start": 73.695999,
-      "duration": 16.477332999999998
+      "voiceDuration": 13.930667,
+      "hold": 1.4,
+      "start": 74.05333399999999,
+      "duration": 15.330667
     }
   ],
   "audio": "audio/voice.mp3",

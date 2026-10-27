@@ -7,36 +7,36 @@
     "warning": 0
   },
   "generatedBy": "stagecraft-studio",
-  "html": "tmp/qa/theo-harness.html",
+  "html": "qa/pilot.html",
   "scenes": [
     {
       "id": "01-cold-open",
-      "time": 6.344,
+      "time": 6.3065,
       "screenshot": "qa/stills/01-cold-open.png"
     },
     {
       "id": "02-interfaces",
-      "time": 19.6825,
+      "time": 19.8905,
       "screenshot": "qa/stills/02-interfaces.png"
     },
     {
       "id": "03-harness-loop",
-      "time": 35.361,
+      "time": 35.832,
       "screenshot": "qa/stills/03-harness-loop.png"
     },
     {
       "id": "04-five-parts",
-      "time": 50.1755,
+      "time": 50.5895,
       "screenshot": "qa/stills/04-five-parts.png"
     },
     {
       "id": "05-claude-code",
-      "time": 65.00150000000001,
+      "time": 65.3685,
       "screenshot": "qa/stills/05-claude-code.png"
     },
     {
       "id": "06-recap",
-      "time": 81.9345,
+      "time": 81.71849999999999,
       "screenshot": "qa/stills/06-recap.png"
     }
   ],
@@ -65,5 +65,12 @@
       "id": "06-recap",
       "screenshot": "qa/phone/06-recap.png"
     }
-  ]
+  ],
+  "checks": {
+    "captions": 27,
+    "loudness": {
+      "integratedLufs": -14.5,
+      "truePeakDbtp": -4.03
+    }
+  }
 }

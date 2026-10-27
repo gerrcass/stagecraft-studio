@@ -12,6 +12,8 @@ const get = (flag: string, fallback: string): string => {
 const dir = resolve(root, get("--dir", "qa/stills"));
 const out = resolve(root, get("--out", "qa/contact-sheet.png"));
 const cols = Number(get("--cols", "3"));
+const width = Number(get("--width", "640"));
+const height = Number(get("--height", "360"));
 
 if (!existsSync(dir)) {
   throw new Error(`No stills directory at ${dir}`);
@@ -38,7 +40,7 @@ execFileSync(
     "-i",
     join(dir, "*.png"),
     "-vf",
-    `scale=640:360,tile=${cols}x${rows}`,
+    `scale=${width}:${height},tile=${cols}x${rows}`,
     "-frames:v",
     "1",
     out,

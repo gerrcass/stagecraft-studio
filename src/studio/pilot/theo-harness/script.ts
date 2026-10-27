@@ -25,7 +25,7 @@ export const sceneSeeds: SceneSeed[] = [
       "An LLM can write code. It still can't click a button. The model is a text engine. It has no hands. By default, all it can do is generate text.",
     claimIds: ["C1"],
     transition: "fade",
-    hold: 2.0,
+    hold: 1.2,
   },
   {
     id: "02-interfaces",
@@ -34,10 +34,10 @@ export const sceneSeeds: SceneSeed[] = [
     headline: "Humans use interfaces.",
     body: "A terminal, a website, an app. The interface hides the code underneath.",
     narration:
-      "Humans don't use computers by writing code. We use an interface: a terminal, a website, an app. The interface is the part you can see and touch. It hides the code underneath.",
+      "Generally, humans don't use computers by writing code. We use an interface: a terminal, a website, an app. The interface is the part you can see and touch. It hides the code underneath.",
     claimIds: ["C2"],
     transition: "fade",
-    hold: 2.0,
+    hold: 1.2,
     data: {
       chips: ["TERMINAL", "WEBSITE", "APP"],
     },
@@ -52,7 +52,7 @@ export const sceneSeeds: SceneSeed[] = [
       "An LLM needs tools. It emits a tool call as text. Something has to parse that text, run the tool, and send the result back. The model never runs the tool itself. The harness does. That loop is the harness.",
     claimIds: ["C3"],
     transition: "fade",
-    hold: 2.2,
+    hold: 1.2,
     data: {
       nodes: [
         { id: "model", label: "LLM", detail: "TEXT ONLY", x: 120, y: 470 },
@@ -76,7 +76,7 @@ export const sceneSeeds: SceneSeed[] = [
       "A harness is five things: the tools, the syntax for calling them, a parser, a result channel, and a list of what's available. Miss one and the loop breaks.",
     claimIds: ["C4"],
     transition: "fade",
-    hold: 2.0,
+    hold: 1.2,
     data: {
       steps: [
         { label: "TOOLS", body: "read_file, edit_file, bash, search" },
@@ -97,7 +97,7 @@ export const sceneSeeds: SceneSeed[] = [
       "Claude Code is kind of a harness. It bakes the interface and the harness into one app. The interface is for you. The harness is for the model. Think of a kitchen: the tools are pots and pans, and a good harness lets you bring your own.",
     claimIds: ["C5"],
     transition: "fade",
-    hold: 2.2,
+    hold: 1.2,
     data: {
       left: {
         label: "INTERFACE",
@@ -122,7 +122,7 @@ export const sceneSeeds: SceneSeed[] = [
       "An agent is an LLM plus a harness. The model is the chef. The harness is the kitchen. And T3 Code is the restaurant that lets you bring whatever kitchen you want. That is the whole trick.",
     claimIds: ["C6"],
     transition: "fade",
-    hold: 3.4,
+    hold: 1.4,
   },
 ];
 
@@ -135,7 +135,7 @@ export const claimLedger = [
   },
   {
     id: "C2",
-    claim: "Humans use interfaces such as terminals, websites and apps; the code underneath is hidden.",
+    claim: "Generally, humans use interfaces such as terminals, websites and apps; the code underneath is hidden.",
     source: "Theo t3.gg, “What is a harness?”, 23 Oct 2026",
   },
   {

@@ -1,0 +1,32 @@
+{
+  "tool": "stagecraft",
+  "version": "0.1.0",
+  "composition": {
+    "id": "theo-harness",
+    "title": "What is a harness?",
+    "width": 1920,
+    "height": 1080,
+    "duration": 89.384001,
+    "fps": 30,
+    "frames": 2682
+  },
+  "bundleHash": "sha256:8e5aa1db7f1427a4ba38881f31caacaaeec308dc918b749b211f54656463d4e0",
+  "fonts": [
+    {
+      "family": "TeX Gyre Heros",
+      "hash": "sha256:e74d262441f748debe79cea18e2f4aac3d41b996cb2020b65effd89911215c99"
+    },
+    {
+      "family": "Roboto Mono",
+      "hash": "sha256:b81cd55177300649be8f95b3b747d721ce607e8ed2856e25bd0c630cfd631faf"
+    }
+  ],
+  "browser": null,
+  "ffmpeg": null,
+  "outputs": [
+    {
+      "path": "qa/theo-harness.html",
+      "hash": "sha256:6130a57a5959612e8a44fe542bacc53e075a7c4b27550b9702f104e21e028f60"
+    }
+  ]
+}

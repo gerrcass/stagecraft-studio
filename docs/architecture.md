@@ -49,8 +49,9 @@ type StudioLayer =
 ```
 
 It mirrors the Stagecraft layer shape closely enough that the adapter is a mapping, not a translation
-layer. The public tests assert the tree and tokens; the adapter is the only place that imports the
-private engine.
+layer. The public tests assert the tree and tokens; `src/studio/**` never imports the private engine.
+The render-only entries under `src/pilot/**` are the exception: they call `defineComposition` and are
+excluded from the public typecheck.
 
 ## Determinism
 

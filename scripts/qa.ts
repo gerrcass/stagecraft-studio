@@ -19,7 +19,7 @@ const get = (flag: string, fallback: string): string => {
   return index >= 0 && args[index + 1] ? args[index + 1]! : fallback;
 };
 
-const html = resolve(root, get("--html", "tmp/qa/theo-harness.html"));
+const html = resolve(root, get("--html", "qa/pilot.html"));
 const outDir = resolve(root, get("--out", "qa"));
 const manifestPath = resolve(root, get("--manifest", "public/demo/manifest.json"));
 
@@ -44,6 +44,7 @@ const executablePath = [
   "/usr/bin/chromium-browser",
   "/usr/bin/chromium",
   "/snap/bin/chromium",
+  chromium.executablePath(),
 ].find((candidate): candidate is string => Boolean(candidate && existsSync(candidate)));
 
 if (!executablePath) {
@@ -214,17 +215,21 @@ for (const scene of manifest.scenes) {
   }, time);
   await page.waitForTimeout(80);
   const screenshot = join(outDir, "phone", `${scene.id}.png`);
-  await page.screenshot({ path: screenshot });
+  await page.locator(".sc-stage").screenshot({ path: screenshot });
   phoneScenes.push({ id: scene.id, screenshot: relative(root, screenshot) });
 }
 
 await browser.close();
 
 const captionsPath = manifest.captions
-  ? resolve(root, manifest.captions)
+  ? resolve(root, "public", manifest.captions)
   : join(root, "public", "demo", "theo-harness.srt");
-if (existsSync(captionsPath)) {
+let captionCount = 0;
+if (!existsSync(captionsPath)) {
+  issues.push({ code: "captions_missing", severity: "error", message: `No captions at ${captionsPath}.`, path: "captions" });
+} else {
   const cues = parseSrt(readFileSync(captionsPath, "utf8"));
+  captionCount = cues.length;
   for (const issue of validateCues(cues, manifest.duration)) {
     issues.push({
       code: "caption_timing",
@@ -264,6 +269,7 @@ const report = {
   html: relative(root, html),
   scenes: reportScenes,
   phone: phoneScenes,
+  checks: { captions: captionCount, loudness: manifest.loudness ?? null },
 };
 mkdirSync(outDir, { recursive: true });
 writeFileSync(join(outDir, "report.json"), `${JSON.stringify(report, null, 2)}\n`);

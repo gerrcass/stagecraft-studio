@@ -3,20 +3,20 @@
 <fcpxml version="1.9">
   <resources>
     <format id="r1" name="FFVideoFormat1080p30" frameDuration="1/30s" width="1920" height="1080"/>
-    <asset id="r2" name="What is a harness?" start="0s" duration="2705/30s" hasVideo="1" hasAudio="1" format="r1" src="master/theo-harness.mp4"/>
+    <asset id="r2" name="What is a harness?" start="0s" duration="2682/30s" hasVideo="1" hasAudio="1" format="r1" src="master/theo-harness.mp4"/>
   </resources>
   <library>
     <event name="Stagecraft Studio">
       <project name="What is a harness?">
-        <sequence format="r1" duration="2705/30s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+        <sequence format="r1" duration="2682/30s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
           <spine>
-            <asset-clip ref="r2" name="What is a harness?" offset="0s" duration="2705/30s" start="0s" audioRole="dialogue">
-            <marker start="0/30s" duration="381/30s" value="An LLM can write code."/>
-            <marker start="381/30s" duration="420/30s" value="Humans use interfaces."/>
-            <marker start="800/30s" duration="521/30s" value="The model only sends text."/>
-            <marker start="1321/30s" duration="368/30s" value="A harness is five things."/>
-            <marker start="1689/30s" duration="522/30s" value="Claude Code is kind of a harness."/>
-            <marker start="2211/30s" duration="494/30s" value="An agent is an LLM plus a harness."/>
+            <asset-clip ref="r2" name="What is a harness?" offset="0s" duration="2682/30s" start="0s">
+            <marker start="0/30s" duration="378/30s" value="An LLM can write code."/>
+            <marker start="378/30s" duration="437/30s" value="Humans use interfaces."/>
+            <marker start="815/30s" duration="520/30s" value="The model only sends text."/>
+            <marker start="1335/30s" duration="366/30s" value="A harness is five things."/>
+            <marker start="1700/30s" duration="521/30s" value="Claude Code is kind of a harness."/>
+            <marker start="2222/30s" duration="460/30s" value="An agent is an LLM plus a harness."/>
             </asset-clip>
           </spine>
         </sequence>

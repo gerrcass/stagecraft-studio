@@ -68,6 +68,10 @@ export const validateCues = (cues: Cue[], total: number): CueIssue[] => {
   const issues: CueIssue[] = [];
   let previousEnd = 0;
   cues.forEach((cue, index) => {
+    if (!Number.isFinite(cue.start) || !Number.isFinite(cue.end)) {
+      issues.push({ index, message: "cue has an invalid timestamp" });
+      return;
+    }
     if (cue.start < previousEnd - 0.001) {
       issues.push({ index, message: `cue starts at ${cue.start}s before the previous cue ends` });
     }

@@ -1,7 +1,7 @@
 {
   "title": "What is a harness?",
   "subtitle": "A 90-second explainer adapted from Theo t3.gg’s article.",
-  "duration": 90.173,
+  "duration": 89.384,
   "width": 1920,
   "height": 1080,
   "fps": 30,
@@ -12,53 +12,77 @@
   "vtt": "demo/theo-harness.vtt",
   "audio": "demo/audio/voice.mp3",
   "loudness": {
-    "integratedLufs": -14.56,
-    "truePeakDbtp": -4.15
+    "integratedLufs": -14.5,
+    "truePeakDbtp": -4.03
   },
   "stills": [
-    { "src": "demo/stills/01.png", "label": "01 / COLD OPEN", "time": 6.3 },
-    { "src": "demo/stills/02.png", "label": "02 / INTERFACES", "time": 19.7 },
-    { "src": "demo/stills/03.png", "label": "03 / HARNESS LOOP", "time": 35.4 },
-    { "src": "demo/stills/04.png", "label": "04 / FIVE PARTS", "time": 50.2 },
-    { "src": "demo/stills/05.png", "label": "05 / CLAUDE CODE", "time": 65.0 },
-    { "src": "demo/stills/06.png", "label": "06 / RECAP", "time": 81.9 }
+    {
+      "src": "demo/stills/01.png",
+      "label": "01 / COLD OPEN",
+      "time": 6.307
+    },
+    {
+      "src": "demo/stills/02.png",
+      "label": "02 / INTERFACES",
+      "time": 19.891
+    },
+    {
+      "src": "demo/stills/03.png",
+      "label": "03 / HARNESS LOOP",
+      "time": 35.832
+    },
+    {
+      "src": "demo/stills/04.png",
+      "label": "04 / FIVE PARTS",
+      "time": 50.589
+    },
+    {
+      "src": "demo/stills/05.png",
+      "label": "05 / CLAUDE CODE",
+      "time": 65.368
+    },
+    {
+      "src": "demo/stills/06.png",
+      "label": "06 / RECAP",
+      "time": 81.719
+    }
   ],
   "scenes": [
     {
       "id": "01-cold-open",
-      "label": "Cold open",
+      "label": "An LLM can write code.",
       "start": 0,
-      "duration": 12.688
+      "duration": 12.613
     },
     {
       "id": "02-interfaces",
-      "label": "Humans use interfaces",
-      "start": 12.688,
-      "duration": 13.989
+      "label": "Humans use interfaces.",
+      "start": 12.613,
+      "duration": 14.555
     },
     {
       "id": "03-harness-loop",
-      "label": "The harness loop",
-      "start": 26.677,
-      "duration": 17.368
+      "label": "The model only sends text.",
+      "start": 27.168,
+      "duration": 17.328
     },
     {
       "id": "04-five-parts",
-      "label": "Five parts",
-      "start": 44.045,
-      "duration": 12.261
+      "label": "A harness is five things.",
+      "start": 44.496,
+      "duration": 12.187
     },
     {
       "id": "05-claude-code",
-      "label": "Claude Code and the kitchen",
-      "start": 56.307,
-      "duration": 17.389
+      "label": "Claude Code is kind of a harness.",
+      "start": 56.683,
+      "duration": 17.371
     },
     {
       "id": "06-recap",
-      "label": "LLM + harness = agent",
-      "start": 73.696,
-      "duration": 16.477
+      "label": "An agent is an LLM plus a harness.",
+      "start": 74.053,
+      "duration": 15.331
     }
   ],
   "source": {

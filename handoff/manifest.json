@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "generator": "stagecraft-studio",
   "title": "What is a harness?",
-  "duration": 90.173332,
+  "duration": 89.384001,
   "fps": 30,
   "size": {
     "width": 1920,
@@ -12,37 +12,37 @@
     {
       "id": "01-cold-open",
       "start": 0,
-      "duration": 12.688,
+      "duration": 12.613332999999999,
       "label": "An LLM can write code."
     },
     {
       "id": "02-interfaces",
-      "start": 12.688,
-      "duration": 13.989333,
+      "start": 12.613332999999999,
+      "duration": 14.554666999999998,
       "label": "Humans use interfaces."
     },
     {
       "id": "03-harness-loop",
-      "start": 26.677333,
-      "duration": 17.368,
+      "start": 27.168,
+      "duration": 17.328,
       "label": "The model only sends text."
     },
     {
       "id": "04-five-parts",
-      "start": 44.045333,
-      "duration": 12.261333,
+      "start": 44.495999999999995,
+      "duration": 12.186667,
       "label": "A harness is five things."
     },
     {
       "id": "05-claude-code",
-      "start": 56.306666,
-      "duration": 17.389333,
+      "start": 56.682666999999995,
+      "duration": 17.370667,
       "label": "Claude Code is kind of a harness."
     },
     {
       "id": "06-recap",
-      "start": 73.695999,
-      "duration": 16.477332999999998,
+      "start": 74.05333399999999,
+      "duration": 15.330667,
       "label": "An agent is an LLM plus a harness."
     }
   ],
@@ -50,12 +50,12 @@
     {
       "path": "master/theo-harness.mp4",
       "role": "video",
-      "hash": "7f0b2e3969fc5a9dc4d627052516418d2bcd7af1840007085bd34562874f6d98"
+      "hash": "ec96f34f6bb5e714869301f5cd7426c23f0360b483050809a1ebf37f1ca550e0"
     },
     {
       "path": "audio/voice.mp3",
       "role": "audio",
-      "hash": "e6f36959f31cd014e0293fa2b661a39ba37fd40b2aecd7e7699e74af0bc3a20b"
+      "hash": "7f09630cfbd21b8e79d2b8eecbd99a55673664591167b8541502d5052a159664"
     },
     {
       "path": "audio/music/bed.mp3",
@@ -65,12 +65,12 @@
     {
       "path": "captions/theo-harness.srt",
       "role": "caption",
-      "hash": "9024642d6c5f27f8b3e03d89c1055a287de6833f80eb4d01937b74cde248adc2"
+      "hash": "da4d35b4a035648df4bcfb812ccdad9f2c3ea0b7cdf67cb9f8a7ee97a79e0c99"
     },
     {
       "path": "captions/theo-harness.vtt",
       "role": "caption",
-      "hash": "dad00e3bae58dfe702aabe7e70abd5565ad03b0cc6313ab7e0c28447f65c5900"
+      "hash": "4663b1e9d1881106b95261c6f9039d193480d4c06bd6712ab5d4be5e9c2e4edb"
     },
     {
       "path": "plates/01.png",
@@ -105,37 +105,37 @@
     {
       "path": "audio/voice/01-cold-open.wav",
       "role": "audio",
-      "hash": "4973ec992443ab35b238f8db20c7bc5df5b80f3ce1f61fd94b73b06cf495c087"
+      "hash": "285bc338a66c50f7926d0dcf7d68874b3b8000ac249d7863ff1e16bc682a662f"
     },
     {
       "path": "audio/voice/02-interfaces.wav",
       "role": "audio",
-      "hash": "a319de9129955866e9f5f7d5f1b6035113bc9961ec94200a87746e90a1212ca0"
+      "hash": "10709204a1f88405165a42a219e88cebe2ebaf1a602a9fa7df3c2d1bbd8d35b9"
     },
     {
       "path": "audio/voice/03-harness-loop.wav",
       "role": "audio",
-      "hash": "e87afd892e9ed10014dcc9c727cd1570050e31af0ff7ba84077619fb5ef40c65"
+      "hash": "b0cb7f295207c026791cace02a1d9cbc3baf0bad1b70e046479613b8c6a932bb"
     },
     {
       "path": "audio/voice/04-five-parts.wav",
       "role": "audio",
-      "hash": "4d5137c98339158727ecfb14c15314df6d179b9d3d4a14f6a4c6198e4ea4aa83"
+      "hash": "09e4f26b94b41b5a0cb7e8cddd26d9c4eefcb6843e793e95a512b70b6eaaef40"
     },
     {
       "path": "audio/voice/05-claude-code.wav",
       "role": "audio",
-      "hash": "ca599fcc9b94db7df2a6c69b448b0f63052e849b98d89c7e679f22d6bbdc62af"
+      "hash": "6ceb165d5883e875ec3e8be22ab74fba3c07ee6601d6f9af095a136b1c44cb99"
     },
     {
       "path": "audio/voice/06-recap.wav",
       "role": "audio",
-      "hash": "4a02ebdab3c710266f70a6cb92b59af14d4cf82096d7e077d53e726cdf1d39d5"
+      "hash": "ebba9656728676f4f62046102f95858d80b81bc6a626699cd73eb00f3075a759"
     }
   ],
   "loudness": {
-    "integratedLufs": -14.56,
-    "truePeakDbtp": -4.15
+    "integratedLufs": -14.5,
+    "truePeakDbtp": -4.03
   },
   "source": {
     "title": "What is a harness?",

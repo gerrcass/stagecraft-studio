@@ -10,7 +10,7 @@ const composition = join(root, "src", "pilot", "theo-harness", "composition.ts")
 const tmp = join(root, "tmp");
 const renderDir = join(tmp, "render");
 const stillDir = join(tmp, "scene-stills");
-const qaDir = join(tmp, "qa");
+const qaDir = join(root, "qa");
 const demo = join(root, "public", "demo");
 
 if (!existsSync(stagecraftCli)) {
@@ -68,7 +68,7 @@ run([
   "--format",
   "html",
   "--out",
-  join(qaDir, "theo-harness.html"),
+  join(qaDir, "pilot.html"),
 ]);
 
 const stills = readdirSync(stillDir)
@@ -103,7 +103,7 @@ execFileSync(
     "-i",
     music,
     "-filter_complex",
-    "[2:a]volume=0.16,lowpass=f=900[music];[1:a]volume=1.0[voice];[voice][music]amix=inputs=2:duration=longest:normalize=0[mix];[mix]loudnorm=I=-14:TP=-1:LRA=11,volume=2.0dB,alimiter=limit=0.85:level=false[a]",
+    "[2:a]volume=0.30,lowpass=f=900[music];[1:a]volume=1.0[voice];[voice][music]amix=inputs=2:duration=longest:normalize=0[mix];[mix]loudnorm=I=-14:TP=-1:LRA=11,volume=2.0dB,alimiter=limit=0.85:level=false[a]",
     "-map",
     "0:v",
     "-map",

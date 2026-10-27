@@ -1,6 +1,6 @@
 ---
 name: video-qa
-description: Review a Stagecraft Studio scene or cut for bounds, overflow, collisions, contrast, type size, dead stretches, caption timing and style drift. Use after a render and before showing the work.
+description: Review a Stagecraft Studio scene or cut for bounds, overflow, collisions, contrast, type size, caption timing, phone stills and style drift. Use after a render and before showing the work.
 ---
 
 # Video QA

@@ -16,7 +16,7 @@ const publicAudio = join(root, "public", "demo", "audio");
 const publicVoice = join(publicAudio, "voice");
 const timingsFile = join(root, "src", "studio", "pilot", "theo-harness", "timings.json");
 const voice = process.env.PILOT_VOICE ?? "am_michael";
-const speed = Number(process.env.PILOT_SPEED ?? "1");
+const speed = Number(process.env.PILOT_SPEED ?? "0.92");
 const python = process.env.HYPERFRAMES_PYTHON ?? join(root, ".venv", "bin", "python");
 
 mkdirSync(voiceDir, { recursive: true });

@@ -42,7 +42,7 @@ export const buildFcpxml = (input: FcpxmlInput): string => {
       <project name="${escapeXml(input.title)}">
         <sequence format="r1" duration="${time(input.duration, input.fps)}" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
           <spine>
-            <asset-clip ref="r2" name="${escapeXml(input.title)}" offset="0s" duration="${time(input.duration, input.fps)}" start="0s" audioRole="dialogue">
+            <asset-clip ref="r2" name="${escapeXml(input.title)}" offset="0s" duration="${time(input.duration, input.fps)}" start="0s">
 ${markers}
             </asset-clip>
           </spine>

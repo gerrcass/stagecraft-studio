@@ -55,4 +55,9 @@ describe("captions", () => {
     );
     expect(issues[0]?.message).toContain("before the previous");
   });
+
+  it("flags invalid SRT timestamps instead of ignoring them", () => {
+    const cues = parseSrt("1\nnot-a-time --> 00:00:02,000\nHello\n");
+    expect(validateCues(cues, 3)[0]?.message).toContain("invalid timestamp");
+  });
 });

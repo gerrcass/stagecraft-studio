@@ -111,8 +111,9 @@ engine remains private; the adapter is optional and the public site builds from 
   pilot’s scene durations are derived from the voice plus a small hold. The mix uses ffmpeg
   `loudnorm` targeting -14 LUFS integrated / -1 dBTP. Captions are sentence-level SRT/VTT.
 - **QA.** Deterministic checks run on the exported HTML through Playwright: text bounds, overflow,
-  collisions, minimum type size, known-token contrast, empty frames, dead stretches and caption
-  timing. Contact sheets are built with ffmpeg. Vision review is optional and never the only gate.
+  collisions, minimum type size, known-token contrast and caption timing. Contact sheets and
+  phone-width stills are built with ffmpeg/Playwright. Empty frames and dead stretches are future
+  work, not v0 gates. Vision review is optional and never the only gate.
 - **Handoff.** The bundle contains `plates/` (PNG frames or ProRes if available), `audio/` stems,
   `captions/`, `edit.fcpxml`, `markers.csv`, `manifest.json` and `NOTE.md`. ffmpeg is the master;
   Resolve Studio is the optional polish pass.

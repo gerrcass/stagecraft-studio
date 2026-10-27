@@ -16,12 +16,13 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "check": "npm run typecheck && npm run check:agents && npm test && npm run build",
-    "qa": "tsx scripts/qa.ts && tsx scripts/contact-sheet.ts --dir qa/stills --out qa/contact-sheet.png",
+    "qa": "tsx scripts/qa.ts && tsx scripts/contact-sheet.ts --dir qa/stills --out qa/contact-sheet.png && tsx scripts/contact-sheet.ts --dir qa/phone --out qa/phone-sheet.png --cols 3 --width 300 --height 169",
     "contact-sheet": "tsx scripts/contact-sheet.ts",
     "handoff": "tsx scripts/handoff.ts",
     "tts": "tsx scripts/generate-voice.ts",
-    "render:pilot": "tsx scripts/render-pilot.ts",
-    "check:agents": "tsx scripts/check-agent-env.ts"
+    "render:pilot": "tsx scripts/render-pilot.ts && tsx scripts/write-manifest.ts",
+    "check:agents": "tsx scripts/check-agent-env.ts",
+    "manifest": "tsx scripts/write-manifest.ts"
   },
   "repository": {
     "type": "git",
@@ -44,6 +45,7 @@
   },
   "devDependencies": {
     "@types/node": "^26.6.5",
+    "playwright": "^1.64.1",
     "playwright-core": "^1.64.1",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",

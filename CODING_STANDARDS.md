@@ -6,8 +6,8 @@ Stagecraft Studio is a small TypeScript toolkit. These are the rules a reviewer 
 
 - TypeScript strict; no `any`, no non-null `!` without a comment, no `as` casts that hide a real
   shape.
-- The studio layer is renderer-neutral. Only `src/studio/renderers/stagecraft.ts` may import the
-  private engine.
+- The studio layer is renderer-neutral. `src/studio/**` never imports the private engine; the
+  render-only pilot entries under `src/pilot/**` may import it through the adapter.
 - Scene IR is validated at the boundary. Internal code may assume the validated type.
 - Public functions have explicit return types when the inference is not obvious.
 
