@@ -1,0 +1,108 @@
+1
+00:00:00,000 --> 00:00:01,902
+An LLM can write code.
+
+2
+00:00:01,902 --> 00:00:04,185
+It still can't click a button.
+
+3
+00:00:04,185 --> 00:00:06,468
+The model is a text engine.
+
+4
+00:00:06,468 --> 00:00:07,989
+It has no hands.
+
+5
+00:00:07,989 --> 00:00:11,413
+By default, all it can do is generate text.
+
+6
+00:00:12,613 --> 00:00:15,851
+Generally, humans don't use computers by writing code.
+
+7
+00:00:15,851 --> 00:00:19,898
+We use an interface: a terminal, a website, an app.
+
+8
+00:00:19,898 --> 00:00:23,945
+The interface is the part you can see and touch.
+
+9
+00:00:23,945 --> 00:00:25,968
+It hides the code underneath.
+
+10
+00:00:27,168 --> 00:00:28,781
+An LLM needs tools.
+
+11
+00:00:28,781 --> 00:00:31,603
+It emits a tool call as text.
+
+12
+00:00:31,603 --> 00:00:37,248
+Something has to parse that text, run the tool, and send the result back.
+
+13
+00:00:37,248 --> 00:00:40,070
+The model never runs the tool itself.
+
+14
+00:00:40,070 --> 00:00:41,470
+The harness does.
+
+15
+00:00:41,470 --> 00:00:43,296
+That loop is the harness.
+
+16
+00:00:44,496 --> 00:00:53,210
+A harness is five things: the tools, the syntax for calling them, a parser, a result channel, and a list of what's available.
+
+17
+00:00:53,210 --> 00:00:55,483
+Miss one and the loop breaks.
+
+18
+00:00:56,683 --> 00:00:59,091
+Claude Code is kind of a harness.
+
+19
+00:00:59,091 --> 00:01:02,532
+It bakes the interface and the harness into one app.
+
+20
+00:01:02,532 --> 00:01:04,252
+The interface is for you.
+
+21
+00:01:04,252 --> 00:01:06,316
+The harness is for the model.
+
+22
+00:01:06,316 --> 00:01:12,853
+Think of a kitchen: the tools are pots and pans, and a good harness lets you bring your own.
+
+23
+00:01:14,053 --> 00:01:17,065
+An agent is an LLM plus a harness.
+
+24
+00:01:17,065 --> 00:01:18,948
+The model is the chef.
+
+25
+00:01:18,948 --> 00:01:20,830
+The harness is the kitchen.
+
+26
+00:01:20,830 --> 00:01:26,101
+And T3 Code is the restaurant that lets you bring whatever kitchen you want.
+
+27
+00:01:26,101 --> 00:01:27,984
+That is the whole trick.
+

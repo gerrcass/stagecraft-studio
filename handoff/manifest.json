@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "generator": "stagecraft-studio",
+  "title": "What is a harness?",
+  "duration": 89.384001,
+  "fps": 30,
+  "size": {
+    "width": 1920,
+    "height": 1080
+  },
+  "scenes": [
+    {
+      "id": "01-cold-open",
+      "start": 0,
+      "duration": 12.613332999999999,
+      "label": "An LLM can write code."
+    },
+    {
+      "id": "02-interfaces",
+      "start": 12.613332999999999,
+      "duration": 14.554666999999998,
+      "label": "Humans use interfaces."
+    },
+    {
+      "id": "03-harness-loop",
+      "start": 27.168,
+      "duration": 17.328,
+      "label": "The model only sends text."
+    },
+    {
+      "id": "04-five-parts",
+      "start": 44.495999999999995,
+      "duration": 12.186667,
+      "label": "A harness is five things."
+    },
+    {
+      "id": "05-claude-code",
+      "start": 56.682666999999995,
+      "duration": 17.370667,
+      "label": "Claude Code is kind of a harness."
+    },
+    {
+      "id": "06-recap",
+      "start": 74.05333399999999,
+      "duration": 15.330667,
+      "label": "An agent is an LLM plus a harness."
+    }
+  ],
+  "assets": [
+    {
+      "path": "master/theo-harness.mp4",
+      "role": "video",
+      "hash": "ec96f34f6bb5e714869301f5cd7426c23f0360b483050809a1ebf37f1ca550e0"
+    },
+    {
+      "path": "audio/voice.mp3",
+      "role": "audio",
+      "hash": "7f09630cfbd21b8e79d2b8eecbd99a55673664591167b8541502d5052a159664"
+    },
+    {
+      "path": "audio/music/bed.mp3",
+      "role": "music",
+      "hash": "dc207763ae36dcbcf54fae3f8a825d229d0465d141661585a4859731ab1e660d"
+    },
+    {
+      "path": "captions/theo-harness.srt",
+      "role": "caption",
+      "hash": "da4d35b4a035648df4bcfb812ccdad9f2c3ea0b7cdf67cb9f8a7ee97a79e0c99"
+    },
+    {
+      "path": "captions/theo-harness.vtt",
+      "role": "caption",
+      "hash": "4663b1e9d1881106b95261c6f9039d193480d4c06bd6712ab5d4be5e9c2e4edb"
+    },
+    {
+      "path": "plates/01.png",
+      "role": "still",
+      "hash": "890dd1436697d0199e8fa410780aa179f616119cd6ce586efc472ae62aaf30e1"
+    },
+    {
+      "path": "plates/02.png",
+      "role": "still",
+      "hash": "cfd81c82015adb8eb42ca6e3df320b2055aa7977fe72473b2e7f91852fec6662"
+    },
+    {
+      "path": "plates/03.png",
+      "role": "still",
+      "hash": "20c2b2d9c1acd2b6721638e3d67351a250a4e96a75b06ea8098055621b45c324"
+    },
+    {
+      "path": "plates/04.png",
+      "role": "still",
+      "hash": "08c47dbdd88481df66cd4f0eb674811f45e62222a8f010d3dc839a3ab372a7aa"
+    },
+    {
+      "path": "plates/05.png",
+      "role": "still",
+      "hash": "56c88b69d1e0d53329f9b9be9e90696641749f0c280baf263a443e1f279f8f16"
+    },
+    {
+      "path": "plates/06.png",
+      "role": "still",
+      "hash": "f419009cad0a2ced6dba91db564b96fc06a1557acd69c6dd596182060e546d66"
+    },
+    {
+      "path": "audio/voice/01-cold-open.wav",
+      "role": "audio",
+      "hash": "285bc338a66c50f7926d0dcf7d68874b3b8000ac249d7863ff1e16bc682a662f"
+    },
+    {
+      "path": "audio/voice/02-interfaces.wav",
+      "role": "audio",
+      "hash": "10709204a1f88405165a42a219e88cebe2ebaf1a602a9fa7df3c2d1bbd8d35b9"
+    },
+    {
+      "path": "audio/voice/03-harness-loop.wav",
+      "role": "audio",
+      "hash": "b0cb7f295207c026791cace02a1d9cbc3baf0bad1b70e046479613b8c6a932bb"
+    },
+    {
+      "path": "audio/voice/04-five-parts.wav",
+      "role": "audio",
+      "hash": "09e4f26b94b41b5a0cb7e8cddd26d9c4eefcb6843e793e95a512b70b6eaaef40"
+    },
+    {
+      "path": "audio/voice/05-claude-code.wav",
+      "role": "audio",
+      "hash": "6ceb165d5883e875ec3e8be22ab74fba3c07ee6601d6f9af095a136b1c44cb99"
+    },
+    {
+      "path": "audio/voice/06-recap.wav",
+      "role": "audio",
+      "hash": "ebba9656728676f4f62046102f95858d80b81bc6a626699cd73eb00f3075a759"
+    }
+  ],
+  "loudness": {
+    "integratedLufs": -14.5,
+    "truePeakDbtp": -4.03
+  },
+  "source": {
+    "title": "What is a harness?",
+    "author": "Theo t3.gg",
+    "url": "https://x.com/theo/status/2113424203345265053",
+    "date": "2026-10-23"
+  },
+  "model": "opencode-go/deepseek-v4.1-flash#max",
+  "engine": "Stagecraft",
+  "notes": "Real claims trace to the source. The pilot voice is a Kokoro scratch take; replace it with the creator’s recording before publishing. The music bed is a generated scratch bed, not a licensed track."
+}

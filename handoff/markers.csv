@@ -1,0 +1,7 @@
+id,label,start,end,duration,archetype
+01-cold-open,"An LLM can write code.",0.000,12.613,12.613,title
+02-interfaces,"Humans use interfaces.",12.613,27.168,14.555,statement
+03-harness-loop,"The model only sends text.",27.168,44.496,17.328,diagram
+04-five-parts,"A harness is five things.",44.496,56.683,12.187,steps
+05-claude-code,"Claude Code is kind of a harness.",56.683,74.053,17.371,compare
+06-recap,"An agent is an LLM plus a harness.",74.053,89.384,15.331,recap
