@@ -6,7 +6,7 @@
 
 [Live demo](https://gerrcass.github.io/stagecraft-studio/) · [Watch the pilot](public/demo/theo-harness.mp4) · [Docs](docs/spec.md) · [Issues](https://github.com/gerrcass/stagecraft-studio/issues)
 
-Stagecraft Studio is a production layer around [Stagecraft](https://github.com/gerrcass/stagecraft).
+Stagecraft Studio is a production layer around Stagecraft (a private engine, not linked here).
 It turns a source into a teaching spine, a voice-first script, a typed scene IR, a deterministic
 motion-graphic composition, captions, a QA report and a Resolve/ffmpeg handoff.
 
@@ -79,7 +79,7 @@ site and tests work without the engine.
   `video-qa`, `resolve-handoff`, `youtube-packaging`.
 - **Four agents** — director, scene-coder, visual-qa, packaging. All use
   `opencode-go/deepseek-v4.1-flash#max`.
-- **QA** — bounds, overflow, collisions, type floor, contrast, contact sheets and phone-width review.
+- **QA** — bounds, overflow, collisions, type floor, contrast, phone-width stills, caption timing, loudness and contact sheets.
 - **Handoff** — master, stems, captions, FCPXML, markers, manifest and a note.
 
 Open the repo in OpenCode; `opencode.json` selects the model and loads the skills. Start with:

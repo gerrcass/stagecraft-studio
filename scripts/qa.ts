@@ -1,5 +1,5 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
+import { join, relative, resolve } from "node:path";
 import { chromium } from "playwright-core";
 import {
   checkBounds,
@@ -10,6 +10,7 @@ import {
   summarize,
   type QAIssue,
 } from "../src/studio/qa/checks.js";
+import { parseSrt, validateCues } from "../src/studio/audio/captions.js";
 
 const root = resolve(import.meta.dirname, "..");
 const args = process.argv.slice(2);
@@ -31,7 +32,10 @@ if (!existsSync(html)) {
 const manifest = JSON.parse(readFileSync(manifestPath, "utf8")) as {
   width: number;
   height: number;
+  duration: number;
   scenes: Array<{ id: string; label: string; start: number; duration: number }>;
+  loudness?: { integratedLufs: number; truePeakDbtp: number };
+  captions?: string;
 };
 
 const executablePath = [
@@ -47,6 +51,7 @@ if (!executablePath) {
 }
 
 mkdirSync(join(outDir, "stills"), { recursive: true });
+mkdirSync(join(outDir, "phone"), { recursive: true });
 
 const browser = await chromium.launch({
   executablePath,
@@ -91,7 +96,7 @@ for (const scene of manifest.scenes) {
 
   const screenshot = join(outDir, "stills", `${scene.id}.png`);
   await page.screenshot({ path: screenshot });
-  reportScenes.push({ id: scene.id, time, screenshot });
+  reportScenes.push({ id: scene.id, time, screenshot: relative(root, screenshot) });
 
   const data = await page.evaluate(() => {
     const stage = document.querySelector(".sc-stage");
@@ -180,7 +185,7 @@ for (const scene of manifest.scenes) {
           .join("")}`;
       })();
       if (hex) {
-        for (const issue of checkContrast(hex, "#0A0A0A", 3)) {
+        for (const issue of checkContrast(hex, "#0A0A0A", node.fontSize < 24 ? 4.5 : 3)) {
           issues.push({ ...issue, path: `${scene.id}/${node.id}` });
         }
       }
@@ -200,13 +205,65 @@ for (const scene of manifest.scenes) {
   }
 }
 
+const phoneScenes: Array<{ id: string; screenshot: string }> = [];
+await page.setViewportSize({ width: 390, height: 844 });
+for (const scene of manifest.scenes) {
+  const time = scene.start + scene.duration / 2;
+  await page.evaluate((t) => {
+    (window as unknown as { stagecraft: { render: (value: number) => void } }).stagecraft.render(t);
+  }, time);
+  await page.waitForTimeout(80);
+  const screenshot = join(outDir, "phone", `${scene.id}.png`);
+  await page.screenshot({ path: screenshot });
+  phoneScenes.push({ id: scene.id, screenshot: relative(root, screenshot) });
+}
+
 await browser.close();
+
+const captionsPath = manifest.captions
+  ? resolve(root, manifest.captions)
+  : join(root, "public", "demo", "theo-harness.srt");
+if (existsSync(captionsPath)) {
+  const cues = parseSrt(readFileSync(captionsPath, "utf8"));
+  for (const issue of validateCues(cues, manifest.duration)) {
+    issues.push({
+      code: "caption_timing",
+      severity: "error",
+      message: `Cue ${issue.index + 1}: ${issue.message}`,
+      path: "captions",
+    });
+  }
+  if (cues.length === 0) {
+    issues.push({ code: "captions_empty", severity: "error", message: "No caption cues parsed.", path: "captions" });
+  }
+}
+
+if (manifest.loudness) {
+  const { integratedLufs, truePeakDbtp } = manifest.loudness;
+  if (integratedLufs < -16 || integratedLufs > -13) {
+    issues.push({
+      code: "loudness_out_of_range",
+      severity: "error",
+      message: `Integrated loudness is ${integratedLufs} LUFS; target -14 LUFS (-16..-13).`,
+      path: "master",
+    });
+  }
+  if (truePeakDbtp > -1) {
+    issues.push({
+      code: "true_peak_too_high",
+      severity: "error",
+      message: `True peak is ${truePeakDbtp} dBTP; keep it at or below -1 dBTP.`,
+      path: "master",
+    });
+  }
+}
 
 const report = {
   ...summarize(issues),
   generatedBy: "stagecraft-studio",
-  html,
+  html: relative(root, html),
   scenes: reportScenes,
+  phone: phoneScenes,
 };
 mkdirSync(outDir, { recursive: true });
 writeFileSync(join(outDir, "report.json"), `${JSON.stringify(report, null, 2)}\n`);

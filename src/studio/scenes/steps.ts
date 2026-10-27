@@ -73,7 +73,7 @@ export const stepsScene = (scene: SceneIR, style: StylePack, index = 0): GroupLa
         width: 360,
         text: step.label,
         font: style.fonts.display,
-        size: 42,
+        size: style.type.displaySm,
         color: style.colors.text,
         letterSpacing: "-0.02em",
         opacity: reveal,

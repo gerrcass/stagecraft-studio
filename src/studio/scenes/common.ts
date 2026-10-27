@@ -67,7 +67,7 @@ export const footer = (
         y: 22,
         width: 320,
         align: "right",
-        text: scene.claimIds.length > 0 ? `CLAIMS ${scene.claimIds.join(" · ")}` : "SOURCE / THEO T3.GG",
+        text: scene.claimIds.length > 0 ? `CLAIMS ${scene.claimIds.join(" · ")}` : "SOURCE",
         font: style.fonts.mono,
         size: style.type.micro,
         color: style.colors.muted,

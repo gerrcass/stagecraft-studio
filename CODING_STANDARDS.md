@@ -43,7 +43,7 @@ Stagecraft Studio is a small TypeScript toolkit. These are the rules a reviewer 
 
 ## Accessibility
 
-- Reading text at least 28 px at 1080p; captions separate and accurate.
+- Reading text at least 28 px at 1080p; metadata labels at least 14 px; captions separate and accurate.
 - The site has readable contrast, keyboard focus and a text alternative for the demo.
 - The video has a poster and a transcript/SRT.
 

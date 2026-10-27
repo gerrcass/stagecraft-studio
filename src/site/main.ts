@@ -13,6 +13,7 @@ type Manifest = {
   poster: string;
   contactSheet?: string;
   captions?: string;
+  vtt?: string;
   stills: Still[];
   scenes: Array<{ id: string; label: string; start: number; duration: number }>;
 };
@@ -30,6 +31,7 @@ const fallback: Manifest = {
   poster: `${base}demo/poster.png`,
   contactSheet: `${base}demo/contact-sheet.png`,
   captions: `${base}demo/theo-harness.srt`,
+  vtt: `${base}demo/theo-harness.vtt`,
   stills: [],
   scenes: [],
 };
@@ -137,11 +139,21 @@ const render = (manifest: Manifest): void => {
   video.poster = manifest.poster;
   video.src = manifest.video;
   video.setAttribute("playsinline", "");
+  video.setAttribute("aria-label", "What is a harness? — 90-second explainer");
+  if (manifest.vtt) {
+    const track = el("track");
+    track.kind = "captions";
+    track.label = "English";
+    track.srclang = "en";
+    track.src = manifest.vtt;
+    track.default = true;
+    video.append(track);
+  }
   videoWrap.append(video);
   const demoFoot = el("div", "demo-foot");
   demoFoot.innerHTML = `
     <span>${manifest.stills.length} STILLS / ${manifest.scenes.length} SCENES</span>
-    <span><a href="${manifest.captions ?? "#"}" download>CAPTIONS .SRT</a> · <a href="${manifest.contactSheet ?? "#"}" target="_blank" rel="noreferrer">CONTACT SHEET ↗</a></span>
+    <span><a href="${manifest.captions ?? "#"}" download>CAPTIONS .SRT</a> · <a href="${manifest.vtt ?? "#"}" target="_blank" rel="noreferrer">.VTT</a> · <a href="${manifest.contactSheet ?? "#"}" target="_blank" rel="noreferrer">CONTACT SHEET ↗</a></span>
   `;
   demo.append(demoHead, videoWrap, demoFoot);
 

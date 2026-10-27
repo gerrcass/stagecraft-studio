@@ -9,10 +9,11 @@
   "poster": "demo/poster.png",
   "contactSheet": "demo/contact-sheet.png",
   "captions": "demo/theo-harness.srt",
+  "vtt": "demo/theo-harness.vtt",
   "audio": "demo/audio/voice.mp3",
   "loudness": {
-    "integratedLufs": -14.54,
-    "truePeakDbtp": -1.27
+    "integratedLufs": -14.56,
+    "truePeakDbtp": -4.15
   },
   "stills": [
     { "src": "demo/stills/01.png", "label": "01 / COLD OPEN", "time": 6.3 },

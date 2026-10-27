@@ -157,7 +157,7 @@ export const diagramScene = (scene: SceneIR, style: StylePack, index = 0): Group
           y: 24,
           text: node.label,
           font: style.fonts.display,
-          size: 34,
+          size: style.type.diagramLabel,
           color: node.accent ? style.colors.text : style.colors.text,
           letterSpacing: "-0.02em",
         }),

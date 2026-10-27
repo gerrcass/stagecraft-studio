@@ -77,4 +77,24 @@ describe("scene IR", () => {
 
     expect(result.ok).toBe(false);
   });
+
+  it("rejects malformed archetype data instead of falling back", () => {
+    const result = validatePilot({
+      ...pilot,
+      scenes: [
+        {
+          ...scene("one", 0, 10),
+          archetype: "diagram",
+          data: {
+            nodes: [{ id: "a", label: "A", x: 0, y: 0, detail: 42 }],
+          },
+        },
+      ],
+    });
+
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(result.issues.some((issue) => issue.path.includes("data"))).toBe(true);
+    }
+  });
 });

@@ -1,11 +1,19 @@
 import { execFileSync, spawnSync } from "node:child_process";
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
+import {
+  buildCues,
+  buildSrt,
+  buildVtt,
+  type CaptionScene,
+  type Cue,
+} from "../src/studio/audio/captions.js";
 import { sceneSeeds } from "../src/studio/pilot/theo-harness/script.js";
 
 const root = resolve(import.meta.dirname, "..");
 const voiceDir = join(root, "tmp", "voice");
 const publicAudio = join(root, "public", "demo", "audio");
+const publicVoice = join(publicAudio, "voice");
 const timingsFile = join(root, "src", "studio", "pilot", "theo-harness", "timings.json");
 const voice = process.env.PILOT_VOICE ?? "am_michael";
 const speed = Number(process.env.PILOT_SPEED ?? "1");
@@ -13,6 +21,7 @@ const python = process.env.HYPERFRAMES_PYTHON ?? join(root, ".venv", "bin", "pyt
 
 mkdirSync(voiceDir, { recursive: true });
 mkdirSync(publicAudio, { recursive: true });
+mkdirSync(publicVoice, { recursive: true });
 
 const run = (command: string, args: string[], env = process.env): string => {
   const result = spawnSync(command, args, {
@@ -43,26 +52,7 @@ const probeDuration = (file: string): number => {
   return value;
 };
 
-const formatSrtTime = (seconds: number): string => {
-  const totalMs = Math.max(0, Math.round(seconds * 1000));
-  const hh = Math.floor(totalMs / 3_600_000);
-  const mm = Math.floor((totalMs % 3_600_000) / 60_000);
-  const ss = Math.floor((totalMs % 60_000) / 1000);
-  const ms = totalMs % 1000;
-  return `${String(hh).padStart(2, "0")}:${String(mm).padStart(2, "0")}:${String(ss).padStart(2, "0")},${String(ms).padStart(3, "0")}`;
-};
-
-const formatVttTime = (seconds: number): string => formatSrtTime(seconds).replace(",", ".");
-
-const sentences = (text: string): string[] => {
-  const parts = text.match(/[^.!?]+[.!?]+/g) ?? [text];
-  return parts.map((part) => part.trim()).filter(Boolean);
-};
-
-type Cue = { start: number; end: number; text: string };
-const cues: Cue[] = [];
-
-let start = 0;
+const captionScenes: CaptionScene[] = [];
 const sceneTimings: Array<{
   id: string;
   voiceDuration: number;
@@ -71,41 +61,33 @@ const sceneTimings: Array<{
   duration: number;
 }> = [];
 
+let start = 0;
 for (const scene of sceneSeeds) {
   const wav = join(voiceDir, `${scene.id}.wav`);
   const textFile = join(voiceDir, `${scene.id}.txt`);
   writeFileSync(textFile, scene.narration, "utf8");
   console.log(`voice ${scene.id}…`);
-  run("npx", [
-    "--yes",
-    "hyperframes@0.8.206",
-    "tts",
-    scene.narration,
-    "--voice",
-    voice,
-    "--speed",
-    String(speed),
-    "--output",
-    wav,
-  ], { ...process.env, HYPERFRAMES_PYTHON: python });
+  run(
+    "npx",
+    [
+      "--yes",
+      "hyperframes@0.8.206",
+      "tts",
+      scene.narration,
+      "--voice",
+      voice,
+      "--speed",
+      String(speed),
+      "--output",
+      wav,
+    ],
+    { ...process.env, HYPERFRAMES_PYTHON: python },
+  );
   const voiceDuration = probeDuration(wav);
   const duration = voiceDuration + scene.hold;
   sceneTimings.push({ id: scene.id, voiceDuration, hold: scene.hold, start, duration });
-
-  const sceneSentences = sentences(scene.narration);
-  const totalWords = sceneSentences.reduce(
-    (total, sentence) => total + sentence.split(/\s+/).filter(Boolean).length,
-    0,
-  );
-  let cursor = start;
-  for (const sentence of sceneSentences) {
-    const words = sentence.split(/\s+/).filter(Boolean).length;
-    const length = Math.max(1.4, (words / Math.max(1, totalWords)) * voiceDuration);
-    const end = Math.min(start + voiceDuration, cursor + length);
-    cues.push({ start: cursor, end, text: sentence });
-    cursor = end;
-  }
-
+  captionScenes.push({ id: scene.id, narration: scene.narration, start, voiceDuration });
+  copyFileSync(wav, join(publicVoice, `${scene.id}.wav`));
   start += duration;
 }
 
@@ -116,18 +98,9 @@ writeFileSync(
   "utf8",
 );
 
-const srt = cues
-  .map((cue, index) => {
-    const body = `${index + 1}\n${formatSrtTime(cue.start)} --> ${formatSrtTime(cue.end)}\n${cue.text}\n`;
-    return body;
-  })
-  .join("\n");
-writeFileSync(join(root, "public", "demo", "theo-harness.srt"), srt, "utf8");
-
-const vtt = `WEBVTT\n\n${cues
-  .map((cue) => `${formatVttTime(cue.start)} --> ${formatVttTime(cue.end)}\n${cue.text}\n`)
-  .join("\n")}`;
-writeFileSync(join(root, "public", "demo", "theo-harness.vtt"), vtt, "utf8");
+const cues: Cue[] = buildCues(captionScenes);
+writeFileSync(join(root, "public", "demo", "theo-harness.srt"), buildSrt(cues), "utf8");
+writeFileSync(join(root, "public", "demo", "theo-harness.vtt"), buildVtt(cues), "utf8");
 
 const inputs = sceneSeeds.flatMap((scene) => ["-i", join(voiceDir, `${scene.id}.wav`)]);
 const filters = sceneTimings.map(

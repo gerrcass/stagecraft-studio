@@ -20,16 +20,17 @@ export type CompiledComposition = {
   scenes: Array<{ id: string; start: number; duration: number }>;
 };
 
-const sceneFade = (scene: SceneIR, time: number): number => {
+const sceneFade = (scene: SceneIR, style: StylePack, time: number): number => {
   if (scene.transition === "cut") return 1;
-  const fadeIn = enter(0, 0.18)(time);
-  const fadeOut = 1 - enter(Math.max(0, scene.duration - 0.18), 0.18)(time);
+  const fade = style.motion.fade;
+  const fadeIn = enter(0, fade)(time);
+  const fadeOut = 1 - enter(Math.max(0, scene.duration - fade), fade)(time);
   return Math.min(fadeIn, fadeOut);
 };
 
-const scenePush = (scene: SceneIR) => {
-  const reveal = enter(0, 0.28);
-  return (time: number) => (1 - reveal(time)) * 28;
+const scenePush = (style: StylePack) => {
+  const reveal = enter(0, style.motion.exit);
+  return (time: number) => (1 - reveal(time)) * style.motion.push;
 };
 
 export const compileScene = (scene: SceneIR, style: StylePack, index = 0): GroupLayer => {
@@ -44,8 +45,8 @@ export const compilePilot = (pilot: PilotIR, style: StylePack): CompiledComposit
   const duration = pilotDuration(pilot);
   const scenes: Layer[] = pilot.scenes.map((sceneIR, index) => {
     const content = compileScene(sceneIR, style, index);
-    const opacity = (time: number) => sceneFade(sceneIR, time);
-    const y = sceneIR.transition === "push" ? scenePush(sceneIR) : 0;
+    const opacity = (time: number) => sceneFade(sceneIR, style, time);
+    const y = sceneIR.transition === "push" ? scenePush(style) : 0;
     return scene({
       id: `${sceneIR.id}-scene`,
       at: sceneIR.start,

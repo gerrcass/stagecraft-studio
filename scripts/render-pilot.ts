@@ -10,6 +10,7 @@ const composition = join(root, "src", "pilot", "theo-harness", "composition.ts")
 const tmp = join(root, "tmp");
 const renderDir = join(tmp, "render");
 const stillDir = join(tmp, "scene-stills");
+const qaDir = join(tmp, "qa");
 const demo = join(root, "public", "demo");
 
 if (!existsSync(stagecraftCli)) {
@@ -27,6 +28,7 @@ rmSync(stillDir, { recursive: true, force: true });
 rmSync(join(demo, "stills"), { recursive: true, force: true });
 mkdirSync(renderDir, { recursive: true });
 mkdirSync(stillDir, { recursive: true });
+mkdirSync(qaDir, { recursive: true });
 mkdirSync(join(demo, "stills"), { recursive: true });
 
 const run = (args: string[]): void => {
@@ -58,6 +60,15 @@ run([
   midpoints.join(","),
   "--out",
   stillDir,
+]);
+
+run([
+  "export",
+  composition,
+  "--format",
+  "html",
+  "--out",
+  join(qaDir, "theo-harness.html"),
 ]);
 
 const stills = readdirSync(stillDir)
@@ -103,6 +114,10 @@ execFileSync(
     "aac",
     "-b:a",
     "192k",
+    "-ar",
+    "48000",
+    "-ac",
+    "2",
     "-t",
     String(theoHarnessTimings.total),
     join(demo, "theo-harness.mp4"),

@@ -48,94 +48,94 @@
   ],
   "assets": [
     {
-      "path": "handoff/master/theo-harness.mp4",
+      "path": "master/theo-harness.mp4",
       "role": "video",
-      "hash": "031ee487ce5c87e9e8b8b7bb512f01c68863337f05c49a7d2fc44894fcc13006"
+      "hash": "7f0b2e3969fc5a9dc4d627052516418d2bcd7af1840007085bd34562874f6d98"
     },
     {
-      "path": "handoff/audio/voice.mp3",
+      "path": "audio/voice.mp3",
       "role": "audio",
       "hash": "e6f36959f31cd014e0293fa2b661a39ba37fd40b2aecd7e7699e74af0bc3a20b"
     },
     {
-      "path": "handoff/audio/music/bed.mp3",
+      "path": "audio/music/bed.mp3",
       "role": "music",
       "hash": "dc207763ae36dcbcf54fae3f8a825d229d0465d141661585a4859731ab1e660d"
     },
     {
-      "path": "handoff/captions/theo-harness.srt",
+      "path": "captions/theo-harness.srt",
       "role": "caption",
       "hash": "9024642d6c5f27f8b3e03d89c1055a287de6833f80eb4d01937b74cde248adc2"
     },
     {
-      "path": "handoff/captions/theo-harness.vtt",
+      "path": "captions/theo-harness.vtt",
       "role": "caption",
       "hash": "dad00e3bae58dfe702aabe7e70abd5565ad03b0cc6313ab7e0c28447f65c5900"
     },
     {
-      "path": "handoff/plates/01.png",
+      "path": "plates/01.png",
       "role": "still",
       "hash": "890dd1436697d0199e8fa410780aa179f616119cd6ce586efc472ae62aaf30e1"
     },
     {
-      "path": "handoff/plates/02.png",
+      "path": "plates/02.png",
       "role": "still",
       "hash": "cfd81c82015adb8eb42ca6e3df320b2055aa7977fe72473b2e7f91852fec6662"
     },
     {
-      "path": "handoff/plates/03.png",
+      "path": "plates/03.png",
       "role": "still",
       "hash": "20c2b2d9c1acd2b6721638e3d67351a250a4e96a75b06ea8098055621b45c324"
     },
     {
-      "path": "handoff/plates/04.png",
+      "path": "plates/04.png",
       "role": "still",
       "hash": "08c47dbdd88481df66cd4f0eb674811f45e62222a8f010d3dc839a3ab372a7aa"
     },
     {
-      "path": "handoff/plates/05.png",
+      "path": "plates/05.png",
       "role": "still",
       "hash": "56c88b69d1e0d53329f9b9be9e90696641749f0c280baf263a443e1f279f8f16"
     },
     {
-      "path": "handoff/plates/06.png",
+      "path": "plates/06.png",
       "role": "still",
       "hash": "f419009cad0a2ced6dba91db564b96fc06a1557acd69c6dd596182060e546d66"
     },
     {
-      "path": "handoff/audio/voice/01-cold-open.wav",
+      "path": "audio/voice/01-cold-open.wav",
       "role": "audio",
       "hash": "4973ec992443ab35b238f8db20c7bc5df5b80f3ce1f61fd94b73b06cf495c087"
     },
     {
-      "path": "handoff/audio/voice/02-interfaces.wav",
+      "path": "audio/voice/02-interfaces.wav",
       "role": "audio",
       "hash": "a319de9129955866e9f5f7d5f1b6035113bc9961ec94200a87746e90a1212ca0"
     },
     {
-      "path": "handoff/audio/voice/03-harness-loop.wav",
+      "path": "audio/voice/03-harness-loop.wav",
       "role": "audio",
       "hash": "e87afd892e9ed10014dcc9c727cd1570050e31af0ff7ba84077619fb5ef40c65"
     },
     {
-      "path": "handoff/audio/voice/04-five-parts.wav",
+      "path": "audio/voice/04-five-parts.wav",
       "role": "audio",
       "hash": "4d5137c98339158727ecfb14c15314df6d179b9d3d4a14f6a4c6198e4ea4aa83"
     },
     {
-      "path": "handoff/audio/voice/05-claude-code.wav",
+      "path": "audio/voice/05-claude-code.wav",
       "role": "audio",
       "hash": "ca599fcc9b94db7df2a6c69b448b0f63052e849b98d89c7e679f22d6bbdc62af"
     },
     {
-      "path": "handoff/audio/voice/06-recap.wav",
+      "path": "audio/voice/06-recap.wav",
       "role": "audio",
       "hash": "4a02ebdab3c710266f70a6cb92b59af14d4cf82096d7e077d53e726cdf1d39d5"
     }
   ],
   "loudness": {
-    "integratedLufs": -14.54,
-    "truePeakDbtp": -1.27
+    "integratedLufs": -14.56,
+    "truePeakDbtp": -4.15
   },
   "source": {
     "title": "What is a harness?",

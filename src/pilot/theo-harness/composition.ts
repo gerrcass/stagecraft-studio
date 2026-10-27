@@ -1,9 +1,10 @@
 import { defineComposition } from "stagecraft";
 import { compilePilot } from "../../studio/compile.js";
 import { theoHarnessPilot } from "../../studio/pilot/theo-harness/pilot.js";
+import { toStagecraftComposition } from "../../studio/renderers/stagecraft.js";
 import { terminalEditorial } from "../../studio/style/terminal-editorial.js";
 
-const compiled = compilePilot(theoHarnessPilot, terminalEditorial);
+const compiled = toStagecraftComposition(compilePilot(theoHarnessPilot, terminalEditorial));
 
 export default defineComposition({
   id: compiled.id,

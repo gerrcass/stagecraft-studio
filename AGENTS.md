@@ -32,7 +32,7 @@ npm install
 npm run check          # typecheck, unit tests, site build
 npm run dev            # local site
 npm run build          # static site
-npm run qa             # deterministic checks + contact sheet
+npm run qa             # checks, phone stills, captions/loudness, contact sheet
 npm run render:pilot   # pilot render with a Stagecraft checkout
 npm run handoff        # Resolve/ffmpeg bundle
 ```

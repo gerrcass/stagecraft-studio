@@ -64,7 +64,7 @@ export const codeScene = (scene: SceneIR, style: StylePack, index = 0): GroupLay
         width: 1100,
         text: line,
         font: style.fonts.mono,
-        size: 20,
+        size: style.type.code,
         color: line.trim().startsWith("<") ? style.colors.accent : style.colors.text,
         opacity: enter(0.35 + lineIndex * 0.05, 0.3),
       }),

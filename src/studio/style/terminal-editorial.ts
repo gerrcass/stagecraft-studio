@@ -20,6 +20,12 @@ export type StylePack = {
     displayXl: number;
     displayLg: number;
     displayMd: number;
+    displaySm: number;
+    number: number;
+    diagramLabel: number;
+    recapLabel: number;
+    quote: number;
+    code: number;
     bodyLg: number;
     body: number;
     label: number;
@@ -51,6 +57,8 @@ export type StylePack = {
     hero: number;
     hold: number;
     stagger: number;
+    fade: number;
+    push: number;
   };
   limits: {
     headlineChars: number;
@@ -79,6 +87,12 @@ export const terminalEditorial: StylePack = {
     displayXl: 152,
     displayLg: 108,
     displayMd: 76,
+    displaySm: 42,
+    number: 96,
+    diagramLabel: 34,
+    recapLabel: 64,
+    quote: 260,
+    code: 20,
     bodyLg: 38,
     body: 30,
     label: 20,
@@ -110,6 +124,8 @@ export const terminalEditorial: StylePack = {
     hero: 0.7,
     hold: 1.2,
     stagger: 0.08,
+    fade: 0.18,
+    push: 28,
   },
   limits: {
     headlineChars: 42,

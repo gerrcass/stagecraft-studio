@@ -16,7 +16,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "check": "npm run typecheck && npm run check:agents && npm test && npm run build",
-    "qa": "tsx scripts/qa.ts",
+    "qa": "tsx scripts/qa.ts && tsx scripts/contact-sheet.ts --dir qa/stills --out qa/contact-sheet.png",
     "contact-sheet": "tsx scripts/contact-sheet.ts",
     "handoff": "tsx scripts/handoff.ts",
     "tts": "tsx scripts/generate-voice.ts",

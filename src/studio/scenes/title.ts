@@ -33,7 +33,7 @@ export const titleScene = (scene: SceneIR, style: StylePack, index = 0): GroupLa
             align: "right",
             text: String(index + 1).padStart(2, "0"),
             font: style.fonts.mono,
-            size: 96,
+            size: style.type.number,
             color: style.colors.line,
             letterSpacing: "-0.04em",
           }),

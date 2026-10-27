@@ -38,7 +38,7 @@ screen at once. Build one diagram and grow it.
 ## Layout rules
 
 - One focal point per frame; the hero fills at least 40% of the frame’s height or width.
-- Body text at least 28 px at 1080; display at least 72 px; no text under 24 px except texture.
+- Reading text at least 28 px at 1080; display at least 72 px; metadata labels 14–15 px; no text under 14 px.
 - Keep reading text inside 80% title-safe; keep all content inside 90% action-safe.
 - One accent word per frame; emphasis comes from scale, inversion or density, not a third colour.
 - Labels sit on the part they name; no legend, no bullet list.

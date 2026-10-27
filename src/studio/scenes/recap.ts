@@ -31,7 +31,7 @@ const box = (
       align: "center",
       text: label,
       font: style.fonts.display,
-      size: 64,
+      size: style.type.recapLabel,
       color: accent ? style.colors.accent : style.colors.text,
       letterSpacing: "-0.04em",
       opacity: reveal,

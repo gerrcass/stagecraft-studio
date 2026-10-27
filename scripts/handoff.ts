@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
-import { join, resolve } from "node:path";
+import { join, relative, resolve } from "node:path";
 import { buildFcpxml } from "../src/studio/handoff/fcpxml.js";
 import { buildHandoffManifest, type HandoffAsset } from "../src/studio/handoff/manifest.js";
 import { buildMarkersCsv } from "../src/studio/handoff/markers.js";
@@ -19,17 +19,17 @@ const copy = (from: string, to: string): HandoffAsset => {
   }
   mkdirSync(resolve(to, ".."), { recursive: true });
   copyFileSync(from, to);
-  const relative = to.replace(`${root}/`, "");
-  const role: HandoffAsset["role"] = relative.includes("master/")
+  const relativePath = relative(handoff, to);
+  const role: HandoffAsset["role"] = relativePath.includes("master/")
     ? "video"
-    : relative.includes("audio/voice")
+    : relativePath.includes("audio/voice")
       ? "audio"
-      : relative.includes("audio/music")
+      : relativePath.includes("audio/music")
         ? "music"
-        : relative.includes("captions/")
+        : relativePath.includes("captions/")
           ? "caption"
           : "still";
-  return { path: relative, role, hash: hash(to) };
+  return { path: relativePath, role, hash: hash(to) };
 };
 
 rmSync(handoff, { recursive: true, force: true });
@@ -52,8 +52,9 @@ for (const file of readdirSync(join(demo, "stills")).sort()) {
   assets.push(copy(join(demo, "stills", file), join(handoff, "plates", file)));
 }
 
-const voiceDir = join(root, "tmp", "voice");
-if (existsSync(voiceDir)) {
+const voiceDirs = [join(demo, "audio", "voice"), join(root, "tmp", "voice")];
+const voiceDir = voiceDirs.find((dir) => existsSync(dir));
+if (voiceDir) {
   for (const file of readdirSync(voiceDir).sort()) {
     if (!file.endsWith(".wav")) continue;
     assets.push(copy(join(voiceDir, file), join(handoff, "audio", "voice", file)));

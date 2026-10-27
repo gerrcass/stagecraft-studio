@@ -23,7 +23,7 @@ A studio layer around Stagecraft that makes the production grammar explicit:
 3. A **six-scene, 90-second pilot** adapting Theo t3.gg’s “What is a harness?” article, with a
    Kokoro scratch voice, sentence-level captions and a rendered MP4.
 4. **Deterministic QA** for bounds, overflow, collisions, minimum type size, known-token contrast,
-   caption timing and loudness, plus contact sheets for human review.
+   caption timing and master loudness, plus contact sheets and phone-width stills for human review.
 5. A **handoff** bundle for ffmpeg or Resolve: plates, stems, SRT, FCPXML/EDL, markers and manifest.
 6. **Seven agent skills**, **four OpenCode agents** and commands that make the loop repeatable.
 7. A **public static site** with the demo, stills and documentation, deployed to GitHub Pages.
@@ -72,7 +72,7 @@ engine remains private; the adapter is optional and the public site builds from 
     determinism rules.
 21. As an agent, I want a director skill, so that I can turn a source into a brief, script and beats.
 22. As an agent, I want a design skill, so that I can apply the style pack without guessing.
-23. As an agent, I want a scene-coder skill, so that I can compile the IR into renderer layers.
+23. As an agent, I want a scene-coder agent, so that I can compile the IR into renderer layers.
 24. As an agent, I want a sound/captions skill, so that I can generate voice, align it and build SRT.
 25. As an agent, I want a QA skill, so that I can inspect stills and return a fix list.
 26. As an agent, I want a handoff skill, so that I can write a Resolve-ready bundle.
@@ -167,8 +167,8 @@ its assets or exact frames.
 
 - `npm run check` passes, including typecheck, unit tests and site build.
 - The pilot MP4 is checked in under `public/demo/`, 90 s ± 2 s, 1920×1080, 30 fps, with audio.
-- The QA report passes bounds/overflow/contrast/type-size gates for every scene midpoint.
-- The SRT is valid and matches the narration.
+- The QA report passes bounds/overflow/contrast/type-size gates for every scene midpoint, with phone-width stills and caption/loudness checks.
+- The SRT/VTT is valid and matches the narration.
 - The site is deployed to GitHub Pages and linked from the README.
 - The README includes a representative screenshot.
 - The public repo contains no Stagecraft source, secrets or unlicensed media.

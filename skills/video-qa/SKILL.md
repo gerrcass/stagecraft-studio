@@ -15,12 +15,10 @@ on a phone.
 | Bounds | text or shapes outside 90% action-safe | DOM bounding boxes |
 | Overflow | text clipped by its own box | `scrollWidth`/`scrollHeight` |
 | Collision | two focal elements overlapping | rect intersection |
-| Type floor | reading text under 28 px at 1080 | computed font size |
+| Type floor | reading text under 28 px, metadata under 14 px | computed font size |
 | Contrast | ink on ground under 3:1 | token pairs / sampled pixels |
-| Empty frame | first frame or a dead scene | pixel variance |
-| Dead stretch | more than 3 s with nothing changing | frame diff |
-| Caption drift | cue not matching the voice | word timestamps |
-| Loudness | quiet or clipped mix | ffprobe / loudnorm |
+| Caption drift | cue not matching the voice | SRT cue validation |
+| Loudness | quiet or clipped mix | manifest / ffmpeg loudnorm |
 
 ## Process
 

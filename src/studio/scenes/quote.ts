@@ -16,7 +16,7 @@ export const quoteScene = (scene: SceneIR, style: StylePack, index = 0): GroupLa
         y: 270,
         text: "“",
         font: style.fonts.display,
-        size: 260,
+        size: style.type.quote,
         color: style.colors.accent,
         lineHeight: 1,
         opacity: reveal,

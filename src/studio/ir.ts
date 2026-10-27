@@ -19,6 +19,57 @@ export const transitionSchema = z.enum(["cut", "fade", "push"]);
 
 export type Transition = z.infer<typeof transitionSchema>;
 
+
+const nodeDataSchema = z
+  .object({
+    id: z.string().min(1),
+    label: z.string().min(1),
+    detail: z.string().optional(),
+    x: z.number(),
+    y: z.number(),
+    width: z.number().positive().optional(),
+    height: z.number().positive().optional(),
+    accent: z.boolean().optional(),
+  })
+  .strict();
+
+const edgeDataSchema = z
+  .object({
+    from: z.string().min(1),
+    to: z.string().min(1),
+    label: z.string().optional(),
+  })
+  .strict();
+
+const sideDataSchema = z
+  .object({
+    label: z.string().min(1),
+    headline: z.string().min(1),
+    body: z.string().optional(),
+    accent: z.boolean().optional(),
+  })
+  .strict();
+
+const stepDataSchema = z
+  .object({
+    label: z.string().min(1),
+    body: z.string().optional(),
+  })
+  .strict();
+
+const dataSchemas: Partial<Record<Archetype, z.ZodType>> = {
+  statement: z
+    .object({ chips: z.array(z.string().min(1)).optional(), accent: z.string().optional() })
+    .strict(),
+  diagram: z
+    .object({ nodes: z.array(nodeDataSchema).min(1).optional(), edges: z.array(edgeDataSchema).optional() })
+    .strict(),
+  compare: z.object({ left: sideDataSchema.optional(), right: sideDataSchema.optional() }).strict(),
+  steps: z.object({ steps: z.array(stepDataSchema).min(1) }).strict(),
+  quote: z.object({ attribution: z.string().optional() }).strict(),
+  code: z.object({ code: z.array(z.string()).min(1) }).strict(),
+};
+
 export const sceneSchema = z.object({
   id: z.string().min(1, "scene id is required"),
   archetype: archetypeSchema,
@@ -102,6 +153,20 @@ export const parsePilot = (input: unknown): PilotIR => {
       });
     }
     previousEnd = Math.max(previousEnd, scene.start + scene.duration);
+
+    const dataSchema = dataSchemas[scene.archetype];
+    if (scene.data !== undefined) {
+      if (!dataSchema) {
+        issues.push({ path: `${scene.id}.data`, message: `archetype "${scene.archetype}" does not accept data` });
+      } else {
+        const result = dataSchema.safeParse(scene.data);
+        if (!result.success) {
+          for (const issue of toIssues(result.error)) {
+            issues.push({ path: `${scene.id}.data.${issue.path}`, message: issue.message });
+          }
+        }
+      }
+    }
   }
 
   if (pilot.duration !== undefined) {
