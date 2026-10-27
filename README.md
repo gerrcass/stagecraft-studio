@@ -18,7 +18,7 @@ part; the studio is the set of decisions that keeps sixty AI-generated scenes lo
 The first pilot is a **90-second explainer** of Theo t3.gg’s “What is a harness?” article: an LLM only
 emits text; a harness parses it, runs tools and returns results; an agent is an LLM plus a harness.
 
-- **Video:** [`public/demo/theo-harness.mp4`](public/demo/theo-harness.mp4) (1920×1080, 30 fps, 90.2 s)
+- **Video:** [`public/demo/theo-harness.mp4`](public/demo/theo-harness.mp4) (1920×1080, 30 fps, 89.4 s)
 - **Poster:** [`public/demo/poster.png`](public/demo/poster.png)
 - **Contact sheet:** [`public/demo/contact-sheet.png`](public/demo/contact-sheet.png)
 - **Captions:** [`public/demo/theo-harness.srt`](public/demo/theo-harness.srt)
