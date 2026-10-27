@@ -64,3 +64,6 @@
 - Build the second style pack (Blueprint) and a second pilot to prove the grammar is not one look.
 - Move the 5–12 minute format to chapter-based projects: 5–8 chapters of 60–120 seconds, one shared
   style pack, one assemble step.
+
+
+See [`session-retro.md`](session-retro.md) for the agent-environment findings (clean checkout, QA input, TTS cache, per-scene render, media duplication).
